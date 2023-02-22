@@ -3,7 +3,6 @@ import {
   Connect,
   Hamburger,
   LeftHeader,
-  Logo,
   LogoText,
   Menu,
   MenuLink,
@@ -11,8 +10,16 @@ import {
   SectionNavbar,
 } from "../style/StyledComponents/Navbar.style";
 
+import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { InjectedConnector } from "wagmi/connectors/injected";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { address, isConnected } = useAccount();
+  const { connect } = useConnect({
+    connector: new InjectedConnector(),
+  });
+  const { disconnect } = useDisconnect();
   return (
     <SectionNavbar>
       <LeftHeader>
@@ -26,7 +33,11 @@ const Navbar = () => {
           <MenuLink to="/About">About</MenuLink>
           <MenuLink to="/Team">Team</MenuLink>
           <MenuLink to="/Roadmap">Roadmap</MenuLink>
-          <Connect>Connect</Connect>
+          {isConnected ? (
+            <Connect onClick={() => disconnect()}>Disconnect</Connect>
+          ) : (
+            <Connect onClick={() => connect()}>Connect</Connect>
+          )}
         </Menu>
       </RightHeader>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
