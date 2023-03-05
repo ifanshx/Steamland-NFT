@@ -8,5 +8,4 @@ export const SectionAbout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: hidden;
 `;

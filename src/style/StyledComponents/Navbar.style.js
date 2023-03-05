@@ -33,25 +33,31 @@ export const Logo = styled.img`
   }
 `;
 export const LogoText = styled.a`
-  padding: 1rem 0;
-  color: #1a1a1a;
   text-decoration: none;
   font-weight: 800;
   font-size: 1.7rem;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 7px;
+  background-color: rgba(255, 255, 255, 0.2);
   transition: all 0.25s ease-in-out;
   font-family: "Barriecito", cursive;
   color: rgba(225, 29, 72, 1);
   span {
     font-weight: 300;
     font-size: 1.3rem;
-    color: black;
+    color: #1a1a1a;
     &:hover {
       color: rgba(225, 29, 72, 1);
     }
   }
   &:hover {
-    color: black;
+    box-shadow: inset 0px 33px 21px 0 #ece1e5 inset 0 40px 15px 0px #99454f,
+      inset 0 99px 5px 0px #14f195;
+    color: #1a1a1a;
+    border-radius: 20px 1px;
+    padding: 5px 14px;
   }
 `;
 
@@ -96,7 +102,6 @@ export const Menu = styled.div`
     width: 100%;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.7);
-    top: 0;
     justify-content: flex-start;
     padding-top: 13vh;
     padding-inline: 1.5rem;
@@ -104,12 +109,15 @@ export const Menu = styled.div`
     z-index: -1;
     transition: all 0.35s ease-in-out;
     left: 0;
+    top: 0;
     backdrop-filter: blur(16px);
-    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    transform: ${({ isOpen }) =>
+      isOpen ? "translateY(0)" : "translateY(-100%)"};
+    opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
   }
 `;
 export const Connect = styled.button`
-  color: black;
+  color: #1a1a1a;
   font-size: 0.8rem;
   cursor: pointer;
   border: none;
@@ -119,7 +127,11 @@ export const Connect = styled.button`
   padding: 5px 15px;
   margin-left: 15px;
   &:hover {
+    box-shadow: inset 0px 33px 21px 0 #ece1e5 inset 0 40px 15px 0px #99454f,
+      inset 0 99px 5px 0px #14f195;
     background-color: white;
+    border-radius: 10px 1px;
+    padding: 7px 16px;
     color: rgba(225, 29, 72, 1);
   }
 
@@ -148,7 +160,8 @@ export const Connect = styled.button`
 `;
 
 export const MenuLink = styled(Link)`
-  color: black;
+  color: #1a1a1a;
+
   font-size: 0.8rem;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.2);
@@ -156,9 +169,14 @@ export const MenuLink = styled(Link)`
   border-radius: 5px;
   padding: 5px 15px;
   margin-left: 15px;
+
   &:hover {
+    box-shadow: inset 0px 33px 21px 0 #ece1e5 inset 0 40px 15px 0px #99454f,
+      inset 0 99px 5px 0px #14f195;
     background-color: white;
-    color: rgba(225, 29, 72, 1);
+    border-radius: 10px 1px;
+    padding: 7px 16px;
+    color: bisque;
   }
 
   @media (max-width: 1172px) {
@@ -205,8 +223,19 @@ export const Hamburger = styled.button`
     background: #1a1a1a;
     margin-bottom: 4px;
     border-radius: 5px;
-    &:hover {
-      color: rgba(225, 29, 72, 1);
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+    :first-child {
+      transform: ${({ isOpen }) => (isOpen ? "rotate(45deg)" : "rotate(0)")};
+    }
+    :nth-child(2) {
+      opacity: ${({ isOpen }) => (isOpen ? "0" : "1")};
+      transform: ${({ isOpen }) =>
+        isOpen ? "translateX(-20px)" : "translateX(0)"};
+    }
+    :nth-child(3) {
+      transform: ${({ isOpen }) => (isOpen ? "rotate(-45deg)" : "rotate(0)")};
     }
   }
   @media (max-width: 1172px) {
