@@ -11,7 +11,7 @@ export const SectionNavbar = styled.div`
   position: fixed;
   top: 0;
   background-color: transparent;
-  z-index: 20;
+  z-index: 999;
   @media (max-width: 1172px) {
     justify-content: space-between;
     padding-inline: 2.5rem;
@@ -27,7 +27,7 @@ export const Logo = styled.img`
   cursor: pointer;
   padding: 0.5rem;
   position: relative;
-  z-index: 5;
+  z-index: 999;
   &:hover {
     background-color: rgba(225, 29, 72, 1);
   }
@@ -39,6 +39,7 @@ export const LogoText = styled.a`
   cursor: pointer;
   border: none;
   border-radius: 5px;
+  z-index: 999;
   padding: 2px 7px;
   background-color: rgba(255, 255, 255, 0.2);
   transition: all 0.25s ease-in-out;
@@ -47,12 +48,14 @@ export const LogoText = styled.a`
   span {
     font-weight: 300;
     font-size: 1.3rem;
+    z-index: 999;
     color: #1a1a1a;
     &:hover {
       color: rgba(225, 29, 72, 1);
     }
   }
   &:hover {
+    z-index: 999;
     box-shadow: inset 0px 33px 21px 0 #ece1e5 inset 0 40px 15px 0px #99454f,
       inset 0 99px 5px 0px #14f195;
     color: #1a1a1a;
@@ -106,11 +109,11 @@ export const Menu = styled.div`
     padding-top: 13vh;
     padding-inline: 1.5rem;
     align-items: flex-start;
-    z-index: -1;
+    z-index: 998;
     transition: all 0.35s ease-in-out;
     left: 0;
     top: 0;
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(2px);
     transform: ${({ isOpen }) =>
       isOpen ? "translateY(0)" : "translateY(-100%)"};
     opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
@@ -213,7 +216,7 @@ export const Hamburger = styled.button`
   cursor: pointer;
   position: relative;
   font-family: "Barriecito", cursive;
-  z-index: 5;
+  z-index: 999;
   &:hover {
     color: rgba(225, 29, 72, 1);
   }

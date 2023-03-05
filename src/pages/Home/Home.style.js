@@ -4,14 +4,14 @@ export const SectionHome = styled.div`
   max-height: 100vh;
   height: 100vh;
   width: 100%;
-  background-color: #ece7e2;
+  background-color: rgb(255, 217, 177);
   background-repeat: repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow-y: hidden;
   @media screen and (max-width: 1172px) {
-    background-color: #ece1e4;
+    background-color: rgb(255, 217, 162);
   }
 `;
 
@@ -110,8 +110,12 @@ export const Ship1 = styled.img`
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 999;
+  z-index: 996;
   pointer-events: none;
+  @media (max-width: 1172px) {
+    width: 110%;
+    top: 30px;
+  }
 `;
 
 const ShipsFly2 = keyframes`
@@ -135,7 +139,7 @@ export const Ship2 = styled.img`
   top: 140px;
   left: 0;
   position: fixed;
-  z-index: 999;
+  z-index: 998;
   pointer-events: none;
 `;
 
@@ -158,7 +162,7 @@ export const Ship3 = styled.img`
   top: 120px;
   left: 0;
   position: fixed;
-  z-index: 998;
+  z-index: 996;
   pointer-events: none;
 `;
 
@@ -168,11 +172,31 @@ const IstanaFly = keyframes`
 
 `;
 export const Istana = styled.img`
-  width: 85%;
+  width: 1100px;
+  box-sizing: border-box;
+  display: flex;
+  background-image: none;
+  &:hover {
+    width: 1200px;
+  }
+`;
+
+export const ContainerIstana = styled.div`
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-image: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
   animation: ${IstanaFly} 4s infinite alternate;
-  position: fixed;
-  z-index: 999;
-  pointer-events: none;
+  z-index: 998;
+  @media (max-width: 1172px) {
+    display: flex;
+    width: 400px;
+    justify-content: center;
+  }
 `;
 
 const IstanaFly2 = keyframes`
@@ -182,8 +206,42 @@ const IstanaFly2 = keyframes`
 `;
 export const Istana2 = styled.img`
   width: 95%;
+  transition: all 0.25s ease-in-out;
   animation: ${IstanaFly2} 5s infinite alternate-reverse;
   position: fixed;
   z-index: 997;
+  pointer-events: none;
+  @media (max-width: 1172px) {
+    display: flex;
+    width: 120%;
+    justify-content: center;
+  }
+`;
+
+const CloudsFrontFly = keyframes`
+  to{ transform:translateY(5px); }
+`;
+export const CloudsFront = styled.img`
+  width: 102%;
+  height: 106%;
+  animation: ${CloudsFrontFly} 4s infinite alternate;
+  position: fixed;
+  z-index: 998;
+  pointer-events: none;
+  @media (max-width: 1172px) {
+    width: 390%;
+    width: 392%;
+    animation: ${CloudsFrontFly} 1s infinite alternate;
+  }
+`;
+
+const CloudsFly = keyframes`
+  to{ transform:translateY(20px); }
+`;
+export const Clouds2 = styled.img`
+  width: 100%;
+  animation: ${CloudsFly} 3s infinite alternate;
+  position: fixed;
+  z-index: 996;
   pointer-events: none;
 `;
