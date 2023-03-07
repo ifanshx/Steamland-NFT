@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {
-  Box,
-  Box2,
   Container,
   Images,
-  Name,
   SectionAbout,
+  TokenAddress,
+  TokenCard,
+  TokenInfo,
+  TokenName,
 } from "./About.style";
 import axios from "axios";
 
@@ -26,28 +27,27 @@ const About = () => {
       .request(token)
       .then(function (response) {
         setTokens(response.data.data.list_nfts);
+        console.log(response.data.data.list_nfts);
       })
       .catch(function (error) {
         console.log(error);
       });
   });
-
   return (
     <SectionAbout>
       <Container>
         {Tokens != 0 &&
           Tokens.map((token, id) => (
-            <Box2 key={id}>
+            <TokenCard key={id}>
               <Images src={token.nft_image} alt="NFT"></Images>
-              <Name>
-                <div> {token.nft_name} </div>
-                <div>
-                  {" "}
-                  {token?.nft_address.substring(0, 5)}...
-                  {token?.nft_address.substring(token?.nft_address.length - 5)}
-                </div>
-              </Name>
-            </Box2>
+              <TokenInfo>
+                <TokenName> OWNER : </TokenName> <br />
+                <TokenAddress>
+                  {token?.nft_address.substring(0, 4)}...
+                  {token?.nft_address.substring(token?.nft_address.length - 4)}
+                </TokenAddress>
+              </TokenInfo>
+            </TokenCard>
           ))}
       </Container>
     </SectionAbout>
