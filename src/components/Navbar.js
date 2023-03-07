@@ -36,7 +36,7 @@ const Navbar = () => {
       <RightHeader>
         <Menu isOpen={isOpen}>
           <MenuLink to="/">Home</MenuLink>
-          <MenuLink to="/About">About</MenuLink>
+          <MenuLink to="/Collection">Collection</MenuLink>
           <MenuLink to="/Team">Team</MenuLink>
           <MenuLink to="/Roadmap">Roadmap</MenuLink>
           {isConnected ? (

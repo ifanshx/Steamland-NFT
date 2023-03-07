@@ -13,7 +13,7 @@ const CenterPoint = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
+          <Route path="/Collection" element={<About />} />
           <Route path="/Team" element={<Team />} />
           <Route path="/Roadmap" element={<Roadmap />} />
         </Routes>
